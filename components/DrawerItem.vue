@@ -3,7 +3,7 @@
         id: Number,
         title: String,
         imageUrl: String,
-        prise: Number,
+        price: Number,
         isAdd: Boolean
     })
 </script>
@@ -12,7 +12,7 @@
     <div class="product-card">
       <img :src="imageUrl" alt="Товар 1" class="product-image" />
         <h3 class="product-name">{{ title }}</h3>
-        <p class="product-price">{{ prise }} ₽</p>
+        <p class="product-price">{{ price }} ₽</p>
       <!-- <button class="action-button">Убрать из корзины</button> -->
     </div>
 </template>

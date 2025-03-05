@@ -7,7 +7,14 @@
         items: Array
     })
 
-    localStore.totalPrise = props.items.reduce((sum, item) => sum + item.prise, 0);
+    const test = computed(() => {return props.items})
+    const Prise = computed(() => {
+      var TotalPrice = 0
+      test.value.map(element => {
+        TotalPrice += element.price
+      })
+      return TotalPrice
+    })
 </script>
 
 <template>
@@ -19,17 +26,18 @@
       <h2>Корзина</h2>
       <button @click="localStore.toggleSidebar">Закрыть</button>
     </header>
-    <ul class="cart-items" v-if="localStore.totalPrise > 0">
+    <ul class="cart-items" v-if="test">
       <DrawerItem
-      v-for="item in items"
-      :key = item.id
-      :id = item.id
-      :title = item.title
-      :imageUrl = item.imageUrl
-      :prise = item.prise
+      v-for="item in test"
+      :key = "item.id"
+      :id = "item.id"
+      :title = "item.title"
+      :imageUrl = "item.imageUrl"
+      :price = "item.price"
+      :isAdd = "item.isAdd"
       />
       <footer class="sidebar-footer">
-        <p>Итого: {{ localStore.totalPrise }} rub</p>
+        <p>Итого: {{ Prise }} rub</p>
         <button class="checkout-button">Оформить заказ</button>
       </footer>
     </ul>

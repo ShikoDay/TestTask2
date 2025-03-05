@@ -1,11 +1,6 @@
 <script setup>
   import { LocalStore } from '~/stores/LocalStore';
   const localStore = LocalStore(); 
-  // import { onMounted } from 'vue';
-
-  // onMounted(() => {
-  //   console.log('Компонент был успешно смонтирован!');
-  // });
 </script>
 
 <template>
@@ -17,7 +12,7 @@
       <ul class="nav-links">
         <li><NuxtLink to="/">Услуги</NuxtLink></li>
         <li><NuxtLink to="/">Контакты</NuxtLink></li>
-        <li><button @click="localStore.toggleSidebar">Корзина {{ localStore.totalItem != 0 ? localStore.totalItem : '' }}</button> </li>
+        <li><button @click="localStore.toggleSidebar">Корзина</button> </li>
       </ul>
     </div>
   </nav>

@@ -1,34 +1,22 @@
 <script setup>
-    import { inject } from "vue";
-    import { LocalStore } from '~/stores/LocalStore';
-    const { addItem, deteleItem } = inject('actionsItem')
-    const localStore = LocalStore();
-    // const emit = defineEmits(['addItem', 'deteleItem']);
-
-    const checkAdd = ref(false)
+    const emit = defineEmits (["delete", "add"])
 
     const props = defineProps ({
         id: Number,
         title: String,
         imageUrl: String,
-        prise: Number,
+        price: Number,
         isAdd: Boolean
     })
 
-
-    const CheckIsAdd = () => {
-      checkAdd.value = props.isAdd
-    }
-    CheckIsAdd()
+    const CheckAdd = computed(() => {return props.isAdd})
 
     const clickAddItem = () => {
-        addItem(props.id)
-        checkAdd.value = true
+      emit("add",props.id)
     }
 
     const clickDeleteItem = (id) => {
-        deteleItem(props.id)
-        checkAdd.value = false
+      emit("delete", props.id)
     }
 </script>
 
@@ -36,9 +24,9 @@
     <div class="product-card">
       <img :src="imageUrl" alt="Товар 1" class="product-image" />
       <h3 class="product-name">{{ title }}</h3>
-      <p class="product-price">{{ prise }} ₽</p>
-      <button class="action-button" v-if="!checkAdd" @click="clickAddItem">Добавить в корзину</button>
-      <button class="action-button-delete" v-if="checkAdd" @click="clickDeleteItem(id)">Убрать из корзины</button>
+      <p class="product-price">{{ price }} ₽</p>
+      <button class="action-button" v-if="CheckAdd == false" @click="clickAddItem">Добавить в корзину</button>
+      <button class="action-button-delete" v-if="CheckAdd == true" @click="clickDeleteItem(id)">Убрать из корзины</button>
     </div>
 </template>
 
