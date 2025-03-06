@@ -2,7 +2,6 @@
     import DrawerItem from '~/components/DrawerItem.vue';
     import { LocalStore } from '~/stores/LocalStore';
     const localStore = LocalStore();
-
     const props = defineProps ({
         items: Array
     })

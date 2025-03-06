@@ -3,7 +3,6 @@ import { ref } from 'vue';
 
 export const LocalStore = defineStore('LocalStore', () => {
   const isSidebarOpen = ref(false);
-
   const toggleSidebar = () => {
     isSidebarOpen.value = !isSidebarOpen.value;
   };

@@ -1,6 +1,5 @@
 <script setup>
     const emit = defineEmits (["delete", "add"])
-
     const props = defineProps ({
         id: Number,
         title: String,
@@ -8,7 +7,7 @@
         price: Number,
         isAdd: Boolean
     })
-
+    
     const CheckAdd = computed(() => {return props.isAdd})
 
     const clickAddItem = () => {

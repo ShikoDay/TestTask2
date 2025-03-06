@@ -3,6 +3,7 @@ import Card from '~/components/Card.vue'
 import { ref, provide } from 'vue';
 import { LocalStore } from '~/stores/LocalStore';
 const localStore = LocalStore();
+
 // const items1 = reactive([])
 const items = ref([
   {

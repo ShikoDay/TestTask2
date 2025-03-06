@@ -13,7 +13,6 @@
       <img :src="imageUrl" alt="Товар 1" class="product-image" />
         <h3 class="product-name">{{ title }}</h3>
         <p class="product-price">{{ price }} ₽</p>
-      <!-- <button class="action-button">Убрать из корзины</button> -->
     </div>
 </template>
 

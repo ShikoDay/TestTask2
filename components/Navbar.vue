@@ -7,7 +7,7 @@
   <nav class="navbar">
     <div class="container">
       <div class="logo">
-        <NuxtLink to="/" class="logo-link">Test task</NuxtLink>
+        <NuxtLink to="/" class="logo-link">TestTask2</NuxtLink>
       </div>
       <ul class="nav-links">
         <li><NuxtLink to="/">Услуги</NuxtLink></li>
